@@ -1,8 +1,13 @@
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using minimal_api.Domíno.Interfaces;
+using minimal_api.Domíno.Servicos;
 using minimal_api.DTOs;
 using minimal_api.Infraestrutura.Db;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddScoped<IAdministradorServico, AdministradorServico>();
 
 builder.Services.AddDbContext<DbContexto>(options =>{
     options.UseSqlServer(
@@ -14,8 +19,8 @@ var app = builder.Build();
 
 app.MapGet("/", () => "Hello World!");
 
-app.MapPost("/login", (LoginDTO loginDTO) =>{
-    if(loginDTO.Email == "adm@teste.com" && loginDTO.Senha == "123456")
+app.MapPost("/login", ([FromBody] LoginDTO loginDTO, IAdministradorServico administradorServico) =>{
+    if(administradorServico.Login(loginDTO) != null)
         return Results.Ok("Login com sucesso");
     else
         return Results.Unauthorized();
@@ -23,4 +28,4 @@ app.MapPost("/login", (LoginDTO loginDTO) =>{
 
 app.Run();
 
-    //parei no vídeo Criando Seed para cadastrar administrador padrão
+// parei em Configurando Swagger na aplicação
