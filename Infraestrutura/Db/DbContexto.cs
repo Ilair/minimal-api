@@ -32,7 +32,7 @@ namespace minimal_api.Infraestrutura.Db
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if(!optionsBuilder.IsConfigured){
-                var stringConexao = _configuracaoAppSettings.GetConnectionString("sqlserver")?.ToString();
+                var stringConexao = _configuracaoAppSettings.GetConnectionString("SqlServer")?.ToString();
                 if(!string.IsNullOrEmpty(stringConexao)){
                     optionsBuilder.UseSqlServer(stringConexao);
                 }
