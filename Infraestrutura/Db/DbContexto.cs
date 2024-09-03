@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using minimal_api.Domíno.Entidades;
+using minimal_api.Dominio.Entidades;
 
 namespace minimal_api.Infraestrutura.Db
 {

@@ -24,7 +24,7 @@ namespace minimal_api.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("minimal_api.Domíno.Entidades.Administrador", b =>
+            modelBuilder.Entity("minimal_api.Dominio.Entidades.Administrador", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -61,7 +61,7 @@ namespace minimal_api.Migrations
                         });
                 });
 
-            modelBuilder.Entity("minimal_api.Domíno.Entidades.Veiculo", b =>
+            modelBuilder.Entity("minimal_api.Dominio.Entidades.Veiculo", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
